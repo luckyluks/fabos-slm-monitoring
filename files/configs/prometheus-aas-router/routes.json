@@ -1,0 +1,52 @@
+[
+ {
+    datasource: "timer1",
+    transformers: ["jsonata-cpu-arch"],
+    datasinks: ["prometheus-1-cpu-arch", "Monitoring/cpuArch"]
+  },
+  {
+    datasource: "timer1",
+    transformers: ["jsonata-standard-metric"],
+    datasinks: ["prometheus-2-cpu-cores", "Monitoring/cpuCores"]
+  },
+  {
+    datasource: "timer1",
+    transformers: ["jsonata-standard-metric"],
+    datasinks: ["prometheus-3-cpu-usage", "Monitoring/cpuUsage"]
+  },
+  {
+    datasource: "timer1",
+    transformers: ["jsonata-standard-metric"],
+    datasinks: ["prometheus-4-system-uptime", "Monitoring/systemUptime"]
+  },
+  {
+    datasource: "timer1",
+    transformers: ["jsonata-standard-metric"],
+    datasinks: ["prometheus-5-ram-installed", "Monitoring/ramInstalled"]
+  },
+  {
+    datasource: "timer1",
+    transformers: ["jsonata-standard-metric"],
+    datasinks: ["prometheus-6-ram-usage", "Monitoring/ramUsage"]
+  },
+  {
+    datasource: "timer1",
+    transformers: ["jsonata-rootfs-type"],
+    datasinks: ["prometheus-7-rootfs-type", "Monitoring/rootFsType"]
+  },
+  {
+    datasource: "timer1",
+    transformers: ["jsonata-standard-metric"],
+    datasinks: ["prometheus-8-rootfs-usage", "Monitoring/rootFsUsage"]
+  },
+  {
+    datasource: "timer1",
+    transformers: ["jsonata-docker-version"],
+    datasinks: ["prometheus-9-docker-version", "Monitoring/dockerVersion"]
+  },
+  {
+    datasource: "timer1",
+    transformers: ["jsonata-docker-runningcontainers"],
+    datasinks: ["prometheus-10-docker-runningContainers", "Monitoring/dockerRunningContainers"]
+  }
+]

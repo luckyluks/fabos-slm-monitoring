@@ -1,0 +1,9 @@
+groups:
+  - name: node_exporter_default
+    rules:
+      - record: cpu_usage:percent
+        expr: ((((count(count(node_cpu_seconds_total) by (cpu)))-avg(sum by (mode)(irate(node_cpu_seconds_total{mode='idle'}[1m]))))*100)/count(count(node_cpu_seconds_total) by (cpu)))
+
+      - record: memory_usage:percent
+        expr: (100-((node_memory_MemAvailable_bytes*100)/node_memory_MemTotal_bytes))
+

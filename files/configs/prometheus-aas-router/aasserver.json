@@ -1,0 +1,52 @@
+[
+  {
+    uniqueId: "Monitoring/cpuArch",
+    endpoint: "http://localhost:4001/aasServer/shells/assetID/aas/",
+    path: "Monitoring/cpuArch"
+  },
+  {
+    uniqueId: "Monitoring/cpuCores",
+    endpoint: "http://localhost:4001/aasServer/shells/assetID/aas/",
+    path: "Monitoring/cpuCores"
+  },
+  {
+    uniqueId: "Monitoring/cpuUsage",
+    endpoint: "http://localhost:4001/aasServer/shells/assetID/aas/",
+    path: "Monitoring/cpuUsage"
+  },
+  {
+    uniqueId: "Monitoring/systemUptime",
+    endpoint: "http://localhost:4001/aasServer/shells/assetID/aas/",
+    path: "Monitoring/systemUptime"
+  },
+  {
+    uniqueId: "Monitoring/ramInstalled",
+    endpoint: "http://localhost:4001/aasServer/shells/assetID/aas/",
+    path: "Monitoring/ramInstalled"
+  },
+  {
+    uniqueId: "Monitoring/ramUsage",
+    endpoint: "http://localhost:4001/aasServer/shells/assetID/aas/",
+    path: "Monitoring/ramUsage"
+  },
+  {
+    uniqueId: "Monitoring/rootFsType",
+    endpoint: "http://localhost:4001/aasServer/shells/assetID/aas/",
+    path: "Monitoring/rootFsType"
+  },
+  {
+    uniqueId: "Monitoring/rootFsUsage",
+    endpoint: "http://localhost:4001/aasServer/shells/assetID/aas/",
+    path: "Monitoring/rootFsUsage"
+  },
+  {
+    uniqueId: "Monitoring/dockerVersion",
+    endpoint: "http://localhost:4001/aasServer/shells/assetID/aas/",
+    path: "Monitoring/dockerVersion"
+  },
+  {
+    uniqueId: "Monitoring/dockerRunningContainers",
+    endpoint: "http://localhost:4001/aasServer/shells/assetID/aas/",
+    path: "Monitoring/dockerRunningContainers"
+  }
+]

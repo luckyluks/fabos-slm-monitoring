@@ -1,0 +1,80 @@
+version: "3"
+services:
+  prometheus:
+    image: {{ docker_image_prometheus }}
+    container_name: prometheus
+    ports:
+      - {{ docker_port_prometheus }}:9090
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+    volumes:
+      - {{ docker_compose_target_folder }}/configs/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    restart: unless-stopped
+    depends_on:
+      - cadvisor
+      - node-exporter
+
+  node-exporter:
+    image: {{ docker_image_nodeexporter }}
+    container_name: node-exporter
+    user: root
+    privileged: true
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+      - {{ docker_compose_target_folder }}/configs/nodeexporter:/etc/nodeexporter/
+    command:
+      - "--path.procfs=/host/proc"
+      - "--path.sysfs=/host/sys"
+      - "--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)"
+      - "--collector.textfile.directory=/etc/nodeexporter"
+    restart: unless-stopped
+    ports:
+      - {{ docker_port_nodeexporter }}:9100
+
+  cadvisor:
+    image: {{ docker_image_cadvisor }}
+    container_name: cadvisor
+    ports:
+      - {{ docker_port_cadvisor }}:8080
+    restart: unless-stopped
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /mnt/windows_docker/version-pack-data/community/docker:/rootfs/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+
+  prometheus-aas-router:
+    container_name: router
+    image: {{ docker_image_aasrouter }}
+#    build:
+#      context: ./build/router
+#      dockerfile: Dockerfile
+    depends_on:
+      - prometheus
+      - node-exporter
+      - cadvisor
+    volumes:
+      - {{ docker_compose_target_folder }}/configs/prometheus-aas-router:/app/config
+      - {{ docker_compose_target_folder }}/configs/aas-server:/usr/share/config
+    restart: unless-stopped
+    environment:
+      - PROMETHEUS_HOST=prometheus
+      - PROMETHEUS_PORT={{ docker_port_prometheus }}
+      - AAS_SERVER_HOST=localhost
+      - AAS_SERVER_PORT={{ docker_port_aasrouter }}
+      - REGISTRY_URL=http://{{ host_registry_fqdn }}:4000/registry
+      - SERVER_URL=http://localhost:{{ docker_port_aasrouter }}/aasServer
+      - HOSTPATH_URL=http://{{ host_localhost_fqdn }}:{{ docker_port_aasrouter }}/aasServer/shells  
+      - UPDATER_CONFIG_DIR=./config
+      - AASX_PATH=/usr/share/config/MVP-AAS.aasx
+      - ASSET_ID={{ asset_id }}
+    ports:
+      - {{ docker_port_aasrouter }}:4001
+
+volumes:
+  prometheus-data:
+    driver: local

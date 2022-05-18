@@ -1,0 +1,19 @@
+galaxy_info:
+  author: Lukas Rauh
+  namespace: ipa
+  role_name: fabos-slm-monitoring
+  description: The role creates / destroys a monitoring stack.
+  company: Fraunhofer Institute for Manufacturing Engineering and Automation IPA
+
+  license: license (MIT)
+
+  min_ansible_version: 2.1
+
+  platforms:
+  - name: Ubuntu
+    versions:
+    - 20.04
+
+  galaxy_tags: [monitoring]
+
+dependencies: []

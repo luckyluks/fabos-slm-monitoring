@@ -1,0 +1,14 @@
+---
+# tasks file for fabos-slm-monitoring
+- name: Ensure the correct compose file is present
+  template:
+    src: docker-compose.monitoring.yaml.j2
+    dest: "{{ docker_compose_target_folder }}/docker-compose.monitoring.yaml"
+
+- name: Stop monitoring stack with docker-compose
+  community.docker.docker_compose:
+    project_src: "{{ docker_compose_target_folder }}"
+    state: absent
+    remove_volumes: "{{ docker_compose_remove_volumes | bool }}"
+    files:
+    - docker-compose.monitoring.yaml

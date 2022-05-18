@@ -1,0 +1,24 @@
+[
+    {
+        "datasource": "timer1",
+        "transformers": ["jsonata-cpu-arch"],
+        "datasinks": ["prometheus-1-cpu-arch", "Monitoring/cpuArch"]
+      }
+],
+[
+    {
+        "datasource": "timer1",
+        "transformers": ["jsonata-cpu-arch"],
+        "datasinks": ["prometheus-1-cpu-arch", "Monitoring/cpuArch"]
+      }
+
+      "endpoint": "http://localhost:4001/aasServer/shells/"
+      "aas": "assetID/aas/",
+      "path": "Monitoring/ramUsage",
+
+      "transformer"
+
+      "endpoint"
+      "query"
+
+]

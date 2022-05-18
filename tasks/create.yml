@@ -1,0 +1,34 @@
+---
+# tasks file for fabos-slm-monitoring
+
+- name: Validate required environment variables are set 
+  assert:
+    that:
+      - "{{ host_registry_fqdn | length > 0 }}"
+      - "{{ host_localhost_fqdn | length > 0 }}"
+      - "{{ asset_id | length > 0 }}"
+    fail_msg: "Variables (host_registry_fqdn, host_localhost_fqdn, asset_id) in '/vars/main.yaml' must be set! Aborting..."
+    success_msg: "Variables are defined!"
+
+- name: Ensure docker compose modules dependencies are installed (pip)
+  pip:
+    name:
+      - docker
+      - docker-compose
+      - PyYAML
+
+- name: Copy config files
+  copy:
+    src: configs/
+    dest: "{{ docker_compose_target_folder }}/configs/"
+- name: Copy compose file
+  template:
+    src: docker-compose.monitoring.yaml.j2
+    dest: "{{ docker_compose_target_folder }}/docker-compose.monitoring.yaml"
+
+- name: Deploy monitoring stack with docker-compose
+  community.docker.docker_compose:
+    project_src: "{{ docker_compose_target_folder }}"
+    state: present
+    files:
+    - docker-compose.monitoring.yaml

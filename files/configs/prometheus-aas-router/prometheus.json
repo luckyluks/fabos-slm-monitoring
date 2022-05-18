@@ -1,0 +1,68 @@
+[
+  {
+    "uniqueId": "prometheus-1-cpu-arch",
+    "serverUrl": "http://prometheus",
+    "serverPort": 9090,
+    "query": "cpu-arch"
+  },
+  {
+    "uniqueId": "prometheus-2-cpu-cores",
+    "serverUrl": "http://prometheus",
+    "serverPort": 9090,
+    "query": "cpu-cores"
+  },
+  {
+    "uniqueId": "prometheus-3-cpu-usage",
+    "serverUrl": "http://prometheus",
+    "serverPort": 9090,
+    "query": "cpu-usage"
+  },
+  {
+    "uniqueId": "prometheus-4-system-uptime",
+    "serverUrl": "http://prometheus",
+    "serverPort": 9090,
+    "query": "system-uptime"
+  },
+  {
+    "uniqueId": "prometheus-5-ram-installed",
+    "serverUrl": "http://prometheus",
+    "serverPort": 9090,
+    "query": "ram-installed"
+  },
+  {
+    "uniqueId": "prometheus-6-ram-usage",
+    "serverUrl": "http://prometheus",
+    "serverPort": 9090,
+    "query": "ram-usage"
+  },
+  {
+    "uniqueId": "prometheus-7-rootfs-type",
+    "serverUrl": "http://prometheus",
+    "serverPort": 9090,
+    "query": "rootfs-type"
+  },
+  {
+    "uniqueId": "prometheus-8-rootfs-usage",
+    "serverUrl": "http://prometheus",
+    "serverPort": 9090,
+    "query": "rootfs-usage"
+  },
+  {
+    "uniqueId": "prometheus-9-docker-version",
+    "serverUrl": "http://prometheus",
+    "serverPort": 9090,
+    "query": "docker-version"
+  },
+  {
+    "uniqueId": "prometheus-10-docker-runningContainers",
+    "serverUrl": "http://prometheus",
+    "serverPort": 9090,
+    "query": "docker-runningContainers"
+  },
+  {
+    "uniqueId": "prometheus-11-external-sample",
+    "serverUrl": "http://prometheus",
+    "serverPort": 9090,
+    "query": "100 - ((node_filesystem_avail_bytes{mountpoint=\"/\",fstype!=\"rootfs\"} * 100) / node_filesystem_size_bytes{mountpoint=\"/\",fstype!=\"rootfs\"})"
+  }
+]
