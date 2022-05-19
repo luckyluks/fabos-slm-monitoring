@@ -70,7 +70,7 @@ services:
       - SERVER_URL=http://localhost:{{ docker_port_aasrouter }}/aasServer
       - HOSTPATH_URL=http://{{ host_localhost_fqdn }}:{{ docker_port_aasrouter }}/aasServer/shells  
       - UPDATER_CONFIG_DIR=./config
-      - AASX_PATH=/usr/share/config/MVP-AAS.aasx
+      - AASX_PATH=/usr/share/config/minimalAAS.aasx
       - ASSET_ID={{ asset_id }}
     ports:
       - {{ docker_port_aasrouter }}:4001
