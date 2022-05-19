@@ -14,5 +14,5 @@ docker_port_aasrouter: 4001
 # default docker images
 docker_image_prometheus: "prom/prometheus:v2.34.0"
 docker_image_nodeexporter: "prom/node-exporter:v1.3.1"
-docker_image_cadvisor: "gcr.io/cadvisor/cadvisor:v0.38.6"
-docker_image_aasrouter: "fabos4ai/aas-router:1.0.0-snapshot"
+docker_image_cadvisor: "zcube/cadvisor:v0.38.8"
+docker_image_aasrouter: "fabos4ai/aas-router:1.0.0-SNAPSHOT"
