@@ -44,7 +44,7 @@ services:
       - /:/rootfs:ro
       - /var/run:/var/run:ro
       - /sys:/sys:ro
-      - /mnt/windows_docker/version-pack-data/community/docker:/rootfs/var/lib/docker:ro
+      - /var/lib/docker:/var/lib/docker:ro
       - /dev/disk/:/dev/disk:ro
 
   prometheus-aas-router:
