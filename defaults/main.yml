@@ -8,7 +8,7 @@ docker_compose_remove_volumes: true
 # default service ports
 docker_port_prometheus: 9090
 docker_port_nodeexporter: 9100
-docker_port_cadvisor: 8080
+docker_port_cadvisor: 8070
 docker_port_aasrouter: 4001
 
 # default docker images
