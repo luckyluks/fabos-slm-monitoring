@@ -2,6 +2,6 @@
 # vars file for fabos-slm-monitoring
 
 ## main config
-host_registry_fqdn: ""
-host_localhost_fqdn: ""
-asset_id: ""
+#host_registry_fqdn: ""
+#host_localhost_fqdn: ""
+#asset_id: ""
